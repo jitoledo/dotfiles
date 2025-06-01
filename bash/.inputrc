@@ -1,0 +1,83 @@
+#"\C-?": backward-kill-word
+#"\M-w": unix-filename-rubout
+
+# Make Tab autocomplete regardless of filename case
+set completion-ignore-case on
+
+# Set every completion which is a symbolic link to a directory
+# to have a slash appended
+set mark-symlinked-directories on
+
+# If there are more than 200 possible completions for a word, ask to show them
+# all.
+set completion-query-items 200
+
+# Immediately show all possible completions.
+set show-all-if-ambiguous on
+
+# Sets completions to be listed immediately instead of ringing the bell
+# when the completing word has more than one possible completion but no
+# partial completion can be made
+set show-all-if-unmodified on
+
+# Sets compltions to be appended by characters that indicate their file 
+# types reported by the stat system call
+set visible-stats on
+
+# Be more intelligent when autocompleting by also looking at the text after
+# the cursor. For example, when the current line is "cd ~/src/mozil", and
+# the cursor is on the "z", pressing Tab will not autocomplete it to "cd
+# ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
+# Readline used by Bash 4.)
+set skip-completed-text on
+
+# Set 3 to be the maximum number of characters to be the common prefix
+# to display for completions.
+set completion-prefix-display-length 3
+
+# Set auto completion to ignore case
+set completion-ignore-case on
+
+# Flip through autocompletion matches with Shift-Tab.
+#"\e[Z": menu-complete
+
+
+# --------------------------------------------------
+# Line Editing
+
+# Be 8 bit clean
+# Allow UTF-8 input and output, instead of showing them like $'\0123\0456'.
+set input-meta on
+set output-meta on
+
+# To allow the use of 8bit-characters like the german umlauts, set to on
+# However this makes the meta key not work as a meta key,
+# which is annoying to those which don't need to type in 8-bit characters.
+set convert-meta off
+
+# --------------------------------------------------
+# History
+
+# Try to stay at the same the cursor position when moving through the history.
+set history-preserve-point on
+
+# Use more intelligent Up/Down behaviour: use the text that has already been
+# typed as the prefix for searching through commands, like in Vim.
+#"\e[B": history-search-forward
+#"\e[A": history-search-backward
+
+
+# --------------------------------------------------
+# Color
+
+# Sets readline to display possible completions using different colors 
+# to indicate their file types.  
+set colored-stats on
+
+# Color the common prefix
+set colored-completion-prefix on
+
+# Color the common prefix in menu-complete
+set menu-complete-display-prefix on
+
+set blink-matching-paren on
