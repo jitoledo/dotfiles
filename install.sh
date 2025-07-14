@@ -38,7 +38,7 @@ if dpkg -l gnome-session >/dev/null 2>&1; then
   #
   # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
   echo 'kitty.desktop' >~/.config/xdg-terminals.list
-  gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
+  gsettings set org.gnome.desktop.default-applications.terminal exec "$(command -v kitty)"
 
   # Install JetBrainsMono nerd-fonts
   curl -OL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip
@@ -46,9 +46,4 @@ if dpkg -l gnome-session >/dev/null 2>&1; then
   unzip -d ${HOME}/.local/share/fonts/ JetBrainsMono.zip JetBrainsMonoNerdFontMono-*.ttf
   rm JetBrainsMono.zip
 
-  # Use the font in gnome terminal too:
-  DCONF_PROFILE=$(gsettings get org.gnome.Terminal.ProfilesList default)
-  FONT_STRING='JetBrainsMono Nerd Font Mono 12'
-  dconf write /org/gnome/terminal/legacy/profiles:/:${DCONF_PROFILE}/font "${FONT_STRING}"
-  exit 0
 fi
